@@ -1,0 +1,92 @@
+section class="page-head"
+
+  header
+
+    h1 class="page-title"
+      span class="page-title__part" Your
+      span class="page-title__title" Words Counted
+      span class="page-title__part" for nothing!
+
+    p class="page-lead" WordsCounted is a Ruby word analyser and counter.
+
+- if @counter
+  div class="wrap"
+    article
+      h3 class="output__title" Stats
+      table class="output__table"
+        tbody
+          tr
+            th Word count
+            td = @counter.word_count
+          tr
+            th Unique word count
+            td = @counter.unique_word_count
+          tr
+            th Average characters per word
+            td = @counter.average_chars_per_word
+          tr
+            th Character count
+            td = @counter.char_count
+
+  div class="wrap"
+    article class="output"
+      h3 class="output__title" Longest Words
+      div class="overflow"
+        table class="output__table"
+          tbody
+            - @counter.longest_words.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
+
+  div class="wrap"
+    article class="output"
+      h3 class="output__title" Most Occurring Words
+      div class="overflow"
+        table class="output__table"
+          tbody
+            - @counter.most_occurring_words.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
+
+  div class="wrap"
+    article class="output"
+      h3 class="output__title" Word Frequency
+      div class="overflow"
+        table class="output__table"
+          tbody
+            - @counter.sorted_word_occurrences.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
+
+  div class="wrap"
+    article class="output"
+      h3 class="output__title" Word Density
+      div class="overflow"
+        table class="output__table"
+          tbody
+            - @counter.word_density.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
+
+  div class="wrap"
+    article class="output"
+      h3 class="output__title" Word Lengths
+      div class="overflow"
+        table class="output__table"
+          tbody
+            - @counter.sorted_word_lengths.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
+
+section class="form"
+  form action="/" method="POST"
+    textarea name="text" class="text-input" rows="8" placeholder="Type something witty in this box."
+    button type="submit" Count'em Up!
+
+footer class="page-footer"
+  a href="https://github.com/abitdodgy/words_counted" Mohamad El-Husseini

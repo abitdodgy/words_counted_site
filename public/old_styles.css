@@ -1,0 +1,88 @@
+/*body {
+  font-family: lato;
+}
+
+section,
+article {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.page-title {
+  font-weight: bold;
+  margin: 40px 0;
+  transform: rotate(-5deg);
+
+  .page-title__title {
+    display: block;
+    margin: 0 10px;
+    font-family: Bangers;
+    font-size: 60px;
+    letter-spacing: 2px;
+  }
+
+  .page-title__part {
+    display: block;
+    font-family: Playball;
+    font-size: 28px;
+  }
+}
+
+
+.text-input {
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.wrap{
+}
+
+  article {
+    margin: 20px auto;
+    padding: 20px 0 30px;
+  }
+
+    h3 {
+      font-family: Bangers;
+      font-size: 24px;
+      letter-spacing: 2px;
+      margin: 0 0 20px;
+    }
+
+    .overflow {
+      max-height: 200px;
+      overflow: auto;
+    }
+
+      .output {
+        border-spacing: none;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+        .output tr th,
+        .output tr td {
+          border-bottom: 1px solid #eee;
+          border-left: 1px solid #eee;
+          border-right: 1px solid #eee;
+          padding: 10px;
+          text-align: left;
+          width: 60%;
+        }
+
+        .output tr:first-child th,
+        .output tr:first-child td {
+          border-top: 1px solid #eee;
+        }
+
+        .output tr td {
+          text-align: right;
+          width: 40%;
+        }
+*/
