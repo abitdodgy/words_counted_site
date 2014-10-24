@@ -1,6 +1,6 @@
 # WordsCounted demonstration site
 
-!["Can I haz cheeseburger?"](http://www.troll.me/images/business-cat-needs/there-is-a-reason-for-my-attire-i-forgot-what-it-was-can-i-has-cheeseburger-thumb.jpg)
+!["I Can haz cheezburger?"](http://www.troll.me/images/business-cat-needs/there-is-a-reason-for-my-attire-i-forgot-what-it-was-can-i-has-cheeseburger-thumb.jpg)
 
 ### What's this?
 This is the source code for my gem's&mdash;[`words_counted`][1]&mdash;website. The site is just a demo of the gem's functionality.
@@ -14,7 +14,7 @@ Yes. It's hosted on Heroku on [http://wordscounted.herokuapp.com][2].
 ### Are you always this awesome?
 Yes.
 
-### Can I haz cheeseburger?
+### I can haz cheezburger?
 No.
 
   [1]: https://github.com/abitdodgy/words_counted
