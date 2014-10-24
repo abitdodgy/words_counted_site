@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sass'
 require 'slim'
 require 'words_counted'
 

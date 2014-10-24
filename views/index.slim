@@ -1,3 +1,7 @@
+div class="github-buttons"
+  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="200" height="40"
+  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&repo=words_counted&type=watch&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="40"
+
 section class="page-head"
 
   header
@@ -6,8 +10,6 @@ section class="page-head"
       span class="page-title__part" Your
       span class="page-title__title" Words Counted
       span class="page-title__part" for nothing!
-
-    p class="page-lead" WordsCounted is a Ruby word analyser and counter.
 
 - if @counter
   div class="wrap"
@@ -60,6 +62,7 @@ section class="page-head"
               tr
                 th = word[0]
                 td = word[1]
+      p Scroll over the table to see more
 
   div class="wrap"
     article class="output"
@@ -71,6 +74,7 @@ section class="page-head"
               tr
                 th = word[0]
                 td = word[1]
+      p Scroll over the table to see more
 
   div class="wrap"
     article class="output"
@@ -82,11 +86,20 @@ section class="page-head"
               tr
                 th = word[0]
                 td = word[1]
+      p Scroll over the table to see more
 
 section class="form"
   form action="/" method="POST"
     textarea name="text" class="text-input" rows="8" placeholder="Type something witty in this box."
     button type="submit" Count'em Up!
 
+
+
 footer class="page-footer"
-  a href="https://github.com/abitdodgy/words_counted" Mohamad El-Husseini
+  ul class="footer-links"
+    li
+      a href="https://github.com/abitdodgy/words_counted" Mohamad El-Husseini
+    li
+      a href="https://github.com/abitdodgy/words_counted" WordsCounted Source
+    li
+      a href="https://github.com/abitdodgy/words_counted" Site Source
