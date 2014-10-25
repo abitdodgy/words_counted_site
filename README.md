@@ -9,7 +9,7 @@ This is the source code for my gem's&mdash;[`words_counted`][1]&mdash;website. T
 It's a highly customisable string analyser and word counter written in Ruby. [Check out its repo][1] for more information.
 
 ### Can I see the site?
-Yes. It's hosted on Heroku on [http://wordscounted.herokuapp.com][2].
+Yes. It's hosted on Heroku and available on [http://rubywordcount.com][2].
 
 ### Are you always this awesome?
 Yes.
@@ -18,4 +18,4 @@ Yes.
 No.
 
   [1]: https://github.com/abitdodgy/words_counted
-  [2]: http://wordscounted.herokuapp.com
+  [2]: http://rubywordcount.com
