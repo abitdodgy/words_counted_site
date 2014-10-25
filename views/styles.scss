@@ -3,9 +3,13 @@
 //
 
 $bg-color: #eee;
+$border-color: #ddd;
 
 $link-color: #05aa73;
 $link-hover-color: darken($link-color, 10%);
+
+$text-color: #000;
+$text-muted: #888;
 
 $table-border-color: #000;
 
@@ -14,13 +18,13 @@ $shadow-bottom-color: red;
 $shadow-top-color: green;
 $shadow-accent-color: blue;
 
+$form-border-color: $shadow-top-color;
+
 $font-family: Courier;
 
 $font-size-title: 4em;
 $font-size-headings: 1.5em;
 $font-size-text: 1em;
-
-$screen-phones: "only screen and (max-width : 320px)";
 
 //
 // Reset
@@ -38,12 +42,14 @@ $screen-phones: "only screen and (max-width : 320px)";
 
 html,
 body {
-  background: #eee url('noise.png') 0 0 repeat;
+  background: $bg-color;
+  background: $bg-color url('noise.png') 0 0 repeat;
+  color: $text-color;
   font-size: $font-size-text;
 }
 
 hr {
-  border: 5px solid #ddd;
+  border: 5px solid $border-color;
   height: 0;
   margin: 100px 0;
 }
@@ -133,8 +139,9 @@ a {
 // Page header banner
 //
 
-.page-head {
-  margin: 120px 0;
+.page-header {
+  margin: 0 0 10px;
+  padding: 0 0 88px;
   text-align: center;
 }
 
@@ -181,12 +188,10 @@ a {
     right: 0;
     top: 0;
   }
+}
 
-  #woman {
-    left: -140px;
-    position: absolute;
-    top: -100px;
-  }
+.subtitle {
+  margin-bottom: 0;
 }
 
 //
@@ -199,7 +204,7 @@ a {
 }
 
 .description {
-  background-color: #ddd;
+  background-color: $border-color;
   margin: 100px 0;
   padding: 30px;
 
@@ -221,9 +226,19 @@ a {
 // Form
 //
 
+form {
+  border-bottom: 3px solid $form-border-color;
+  border-top: 3px solid $form-border-color;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0 0 20px;
+}
+
 textarea {
-  background-color: #ddd;
-  border: none;
+  background-color: $border-color;
+  border: 1px solid $form-border-color;
+  border-top: none;
+  border-radius: 0;
   box-sizing: border-box;
   font-size: $font-size-text;
   margin: 0 0 20px;
@@ -296,26 +311,12 @@ button[type="submit"] {
     width: 100%;
   }
 
-  .page-head {
-    margin: 150px 0;
-  }
+  .subtitle {
+    line-height: 1.4em;
 
-  .page-title {
-    display: inline-block;
-    font-size: 3em;
-
-    #woman {
-      left: 110px;
-      top: -160px;
+    span {
+      display: block;
     }
-
-    .highlight {
-      display: none;
-    }
-  }
-
-  form {
-    padding: 0 10px;
   }
 
   .description {
@@ -358,36 +359,37 @@ button[type="submit"] {
 // Attribution
 //
 
-.attribution {
+.credits {
+  background-color: $border-color;
+  border-top: 5px solid #ccc;
   line-height: 2em;
-  margin: 0 0 50px;
+  margin: 0;
+  padding: 100px 10px 60px;
   text-align: center;
 
-  &__text {
-    color: #888;
+  .credit-title {
+    color: $text-muted;
+    font-size: 1em;
     font-weight: 300;
     text-transform: uppercase;
   }
 
-  &__author {
-    color: #accdf6 !important;
-    display: block;
+  .credit {
+    font-size: 1.3em;
+    margin: 0 0 2em;
 
+    a {
+      color: $text-color !important;
 
-    &:hover,
-    &:active,
-    &:visited {
-      color: #5689c8 !important;
+      &:visited {
+        color: inherit;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $shadow-bottom-color !important;
+      }
     }
   }
 }
-
-//
-// Footer Github and Twitter buttons
-//
-
-.social-buttons {
-  margin: 0 0 100px;
-  text-align: center;
-}
-

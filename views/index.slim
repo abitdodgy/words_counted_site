@@ -4,18 +4,20 @@ div class="top-border"
   div class="bar bar-3"
   div class="bar bar-4"
 
-div class="octocat-wrapper"
-  a href="https://github.com/abitdodgy/words_counted"
-    img src="octocat.png" height="60" width="60" class="octocat"
+section class="page-header"
 
-header class="page-head"
+  div class="octocat-wrapper"
+    a href="https://github.com/abitdodgy/words_counted"
+      img src="octocat.png" height="60" width="60" class="octocat"
+
+  figure id="woman"
+    img src="woman.svg"
+
   h1 class="page-title"
     a href="/" Words Counted
     span class="highlight"
-    img src="woman.svg" id="woman"
-  h2 For Nothing!
 
-hr
+  h2 class="subtitle" A Ruby word counter <span>and</span> string analyser.
 
 - if @counter
   section class="description"
@@ -31,7 +33,7 @@ hr
               th Unique word count
               td = @counter.unique_word_count
             tr
-              th Average characters per word
+              th Average chars per word
               td = @counter.average_chars_per_word
             tr
               th Character count
@@ -82,13 +84,11 @@ hr
                 th = word[0]
                 td = word[1]
 
-  hr
+section class="content"
 
-form action="/" method="POST"
-  textarea name="text" rows="7" placeholder="Try it. Type something witty in this box or paste a text."
-  button type="submit" Let's 'ave a Look!
-
-hr
+  form action="/" method="POST"
+    textarea name="text" rows="7" placeholder="Try it. Type something witty in this box or paste a text."
+    button type="submit" Let's 'ave a Look!
 
 section class="content"
 
@@ -104,16 +104,15 @@ section class="content"
       span for this site is available on Github.
 
 
-hr
+footer class="credits"
+  h3 class="credit-title" A project by
+  h2 class="credit"
+    a href="https://github.com/abitdodgy" Mohamad El-Husseini
 
-div class="attribution"
-  h2
-    span class="attribution__text" A project by
-    a href="https://github.com/abitdodgy" class="attribution__author" Mohamad El-Husseini
+  h3 class="credit-title" Page Source
+  h2 class="credit"
+    a href="https://github.com/abitdodgy/words_counted_site" Visit Github
 
-div class="social-buttons"
-  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&type=follow&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="20"
-  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&repo=words_counted&type=watch&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="70" height="20"
-  a href="https://twitter.com/abitdodgy" class="twitter-follow-button" data-show-count="false" data-size="medium" style="display: inline;" Follow @abitdodgy
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  h3 class="credit-title" Gem Source and Docs
+  h2 class="credit"
+    a href="https://github.com/abitdodgy/words_counted" Visit Github
