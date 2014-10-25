@@ -2,27 +2,27 @@ div class="top-border"
   div class="bar bar-1"
   div class="bar bar-2"
   div class="bar bar-3"
+  div class="bar bar-4"
 
 div class="octocat-wrapper"
   a href="https://github.com/abitdodgy/words_counted"
     img src="octocat.png" height="60" width="60" class="octocat"
 
-header class="page-title"
-  img src="woman.svg" id="woman"
+header class="page-head"
   h1 class="page-title"
-    a href="/"
-      span class="page-title__part" Your
-      span class="page-title__title" Words Counted
-      span class="page-title__part" for nothing!
+    a href="/" Words Counted
+    span class="highlight"
+    img src="woman.svg" id="woman"
+  h2 For Nothing!
 
 hr
 
 - if @counter
   section class="description"
-    div class="wrap"
+
       article class="output"
-        h3 class="output__title" Stats
-        table class="output__table"
+        h3 Stats
+        table
           tbody
             tr
               th Word count
@@ -37,81 +37,79 @@ hr
               th Character count
               td = @counter.char_count
 
-    div class="wrap"
       article class="output"
-        h3 class="output__title" Longest Words
-        div class="overflow"
-          table class="output__table"
-            tbody
-              - @counter.longest_words.each do |word|
-                tr
-                  th = word[0]
-                  td = word[1]
+        h3 Longest Words
+        table
+          tbody
+            - @counter.longest_words.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
 
-    div class="wrap"
       article class="output"
-        h3 class="output__title" Most Occurring Words
-        div class="overflow"
-          table class="output__table"
-            tbody
-              - @counter.most_occurring_words.each do |word|
-                tr
-                  th = word[0]
-                  td = word[1]
+        h3 Most Occurring Words
+        table
+          tbody
+            - @counter.most_occurring_words.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
 
-    div class="wrap"
       article class="output"
-        h3 class="output__title" Word Frequency
-        div class="overflow"
-          table class="output__table"
-            tbody
-              - @counter.sorted_word_occurrences.each do |word|
-                tr
-                  th = word[0]
-                  td = word[1]
+        h3 Word Frequency
+        table
+          tbody
+            - @counter.sorted_word_occurrences.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
 
-    div class="wrap"
       article class="output"
-        h3 class="output__title" Word Density
-        div class="overflow"
-          table class="output__table"
-            tbody
-              - @counter.word_density.each do |word|
-                tr
-                  th = word[0]
-                  td = word[1]
+        h3 Word Density
+        table
+          tbody
+            - @counter.word_density.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
 
-    div class="wrap"
       article class="output"
-        h3 class="output__title" Word Lengths
-        div class="overflow"
-          table class="output__table"
-            tbody
-              - @counter.sorted_word_lengths.each do |word|
-                tr
-                  th = word[0]
-                  td = word[1]
+        h3 Word Lengths
+        table
+          tbody
+            - @counter.sorted_word_lengths.each do |word|
+              tr
+                th = word[0]
+                td = word[1]
 
   hr
 
-h2 Try it...
-section class="description"
-  form action="/" method="POST"
-    textarea name="text" class="text-input" rows="8" placeholder="Type something witty in this box or paste a text."
+form action="/" method="POST"
+  textarea name="text" rows="7" placeholder="Try it. Type something witty in this box or paste a text."
+  button type="submit" Let's 'ave a Look!
+
+hr
+
+section class="content"
+
+  article class="description"
+    img src="paperboy.svg" id="paperboy"
+    h2 class="title" Read all about it
     p
-      button type="submit" class="text-submit" Let's 'ave a Look!
+      a> href="https://github.com/abitdodgy/words_counted" WordsCounted
+      span is highly customisable Ruby gem to analyse strings for desired content. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.
+    p
+      span The
+      a<> href="http://github.com/abitdodgy/words_counted_site" source code
+      span for this site is available on Github.
 
 
-section class="description"
-  img src="man.svg" id="man"
-  h2 class="description__title" What's this?
-  p
-    a> href="https://github.com/abitdodgy/words_counted" WordsCounted
-    span is highly customisable Ruby gem to analyse strings for desired content. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.
-  p
-    span The
-    a<> href="http://github.com/abitdodgy/words_counted_site" source code
-    span for this site is available on Github.
+hr
+
+div class="attribution"
+  h2
+    span class="attribution__text" A project by
+    a href="https://github.com/abitdodgy" class="attribution__author" Mohamad El-Husseini
 
 div class="social-buttons"
   iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&type=follow&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="20"

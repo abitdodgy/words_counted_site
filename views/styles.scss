@@ -1,10 +1,4 @@
 //
-// Fonts
-//
-
-@import url(http://fonts.googleapis.com/css?family=Bangers);
-
-//
 // Variables
 //
 
@@ -22,13 +16,18 @@ $shadow-accent-color: blue;
 
 $font-family: Courier;
 
+$font-size-title: 4em;
+$font-size-headings: 1.5em;
+$font-size-text: 1em;
+
+$screen-phones: "only screen and (max-width : 320px)";
+
 //
 // Reset
 //
 
 * {
   font-family: $font-family;
-  font-size: 16px;
   margin: 0;
   padding: 0;
 }
@@ -40,22 +39,29 @@ $font-family: Courier;
 html,
 body {
   background: #eee url('noise.png') 0 0 repeat;
-  background-color: $bg-color;
-}
-
-h2 {
-  font-size: 24px;
-  margin: 20px 0;
-  text-align: center;
+  font-size: $font-size-text;
 }
 
 hr {
   border: 5px solid #ddd;
   height: 0;
+  margin: 100px 0;
+}
+
+h2 {
+  font-size: $font-size-headings;
+  font-weight: bold;
+  margin: 20px 0;
 }
 
 p {
-  margin-bottom: 20px;
+  font-size: $font-size-text;
+  line-height: 24px;
+  margin: 20px 0;
+}
+
+textarea {
+  line-height: 24px;
 }
 
 a {
@@ -84,17 +90,22 @@ a {
 
   &.bar-1 {
     background-color: $shadow-bottom-color;
-    width: 30%;
+    width: 25%;
   }
 
   &.bar-2 {
     background-color: $shadow-top-color;
-    width: 40%;
+    width: 25%;
   }
 
   &.bar-3 {
+    background-color: $heading-color;
+    width: 25%;
+  }
+
+  &.bar-4 {
     background-color: $shadow-accent-color;
-    width: 30%;
+    width: 25%;
   }
 }
 
@@ -119,38 +130,39 @@ a {
 }
 
 //
+// Page header banner
+//
+
+.page-head {
+  margin: 120px 0;
+  text-align: center;
+}
+
+//
 // Page title
 //
 
 .page-title {
-  margin: 150px auto;
-  max-width: 600px;
+  color: $heading-color;
+  display: inline-block;
+  font-size: $font-size-title;
+  font-weight: bold;
+  letter-spacing: 2px;
   position: relative;
-  text-align: center;
-
-  @media (max-width: 500px) {
-    width: 95%;
-  }
-
-  #woman {
-    left: 110px;
-    position: absolute;
-    top: -115px;
-
-    @media (max-width: 500px) {
-      left: 0;
-      top: -45px;
-    }
-  }
-
-  h1 {
-    font-weight: bold;
-    transform: rotate(-5deg);
-  }
+  text-shadow:
+     1px  2px 0 $shadow-bottom-color,
+    -1px -2px 0 $shadow-top-color,
+    -1px  1px 0 $shadow-accent-color,
+     1px -1px 0 $shadow-accent-color;
+  text-transform: uppercase;
+  word-spacing: -15px;
 
   a {
     color: inherit;
+    font-size: inherit;
+    position: relative;
     text-decoration: none;
+    z-index: 2;
 
     &:hover,
     &:active,
@@ -160,47 +172,49 @@ a {
     }
   }
 
-  &__title {
-    color: $heading-color;
-    display: block;
-    margin: 0 10px;
-    font-family: Bangers;
-    font-size: 60px;
-    letter-spacing: 3px;
-    text-shadow:
-      1px 2px 0 $shadow-bottom-color,
-      -1px -2px 0 $shadow-top-color,
-      -1px 1px 0 $shadow-accent-color;
+  .highlight {
+    background-color: #accdf6;
+    bottom: 0;
+    left: 0;
+    opacity: .5;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
-  &__part {
-    display: block;
-    font-size: 28px;
-    font-weight: normal;
-    text-transform: uppercase;
+  #woman {
+    left: -140px;
+    position: absolute;
+    top: -100px;
   }
 }
 
 //
-// Page block
+// Content
 //
+
+.content {
+  margin: 0 auto;
+  max-width: 600px;
+}
 
 .description {
   background-color: #ddd;
-  line-height: 24px;
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 30px 30px 20px;
-  text-align: center;
-}
+  margin: 100px 0;
+  padding: 30px;
 
-//
-// Footer Github and Twitter buttons
-//
+  .title {
+    margin: 0 0 20px;
+  }
 
-.social-buttons {
-  margin: 50px 0 20px;
-  text-align: center;
+  #paperboy {
+    float: right;
+    height: 200px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 //
@@ -211,13 +225,17 @@ textarea {
   background-color: #ddd;
   border: none;
   box-sizing: border-box;
+  font-size: $font-size-text;
+  margin: 0 0 20px;
+  outline: none;
+  padding: 20px;
   resize: none;
-  text-align: center;
   width: 100%;
 }
 
-button[type=submit] {
+button[type="submit"] {
   display: block;
+  font-size: $font-size-text;
   margin: 0 auto;
   padding: 6px 12px;
   width: 230px;
@@ -228,17 +246,16 @@ button[type=submit] {
 //
 
 .output {
-  padding: 20px 0 30px;
 
-  &__title {
-    font-size: 24px;
-    margin: 0 0 20px;
+  h3 {
+    font-size: 1em;
+    margin: 20px 0;
   }
 
-  &__table {
+  table {
     border-spacing: none;
     border-collapse: collapse;
-    margin: 0;
+    margin: 20px 0;
     padding: 0;
     width: 100%;
 
@@ -249,6 +266,7 @@ button[type=submit] {
       border-right: 1px solid $table-border-color;
       padding: 10px;
       text-align: left;
+      vertical-align: middle;
       width: 50%;
     }
 
@@ -268,3 +286,108 @@ button[type=submit] {
     }
   }
 }
+
+//
+// Media queries
+//
+
+@media only screen and (max-width: 320px) {
+  .content {
+    width: 100%;
+  }
+
+  .page-head {
+    margin: 150px 0;
+  }
+
+  .page-title {
+    display: inline-block;
+    font-size: 3em;
+
+    #woman {
+      left: 110px;
+      top: -160px;
+    }
+
+    .highlight {
+      display: none;
+    }
+  }
+
+  form {
+    padding: 0 10px;
+  }
+
+  .description {
+    margin: 100px 10px;
+    padding: 30px 20px;
+    text-align: center;
+
+    h2 {
+      font-size: 1.3em;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1em;
+    }
+
+    #paperboy {
+      float: none;
+      width: 50%;
+    }
+  }
+
+  .output {
+
+    table {
+      font-size: .8em;
+
+      tr th {
+        width: 70%;
+      }
+
+      tr td {
+        width: 30%;
+      }
+    }
+  }
+}
+
+//
+// Attribution
+//
+
+.attribution {
+  line-height: 2em;
+  margin: 0 0 50px;
+  text-align: center;
+
+  &__text {
+    color: #888;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  &__author {
+    color: #accdf6 !important;
+    display: block;
+
+
+    &:hover,
+    &:active,
+    &:visited {
+      color: #5689c8 !important;
+    }
+  }
+}
+
+//
+// Footer Github and Twitter buttons
+//
+
+.social-buttons {
+  margin: 0 0 100px;
+  text-align: center;
+}
+
