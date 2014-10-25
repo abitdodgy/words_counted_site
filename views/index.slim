@@ -1,106 +1,121 @@
-div class="github-buttons"
-  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="200" height="40"
-  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&repo=words_counted&type=watch&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="40"
+div class="top-border"
+  div class="bar bar-1"
+  div class="bar bar-2"
+  div class="bar bar-3"
 
-section class="page-head"
+div class="octocat-wrapper"
+  a href="https://github.com/abitdodgy/words_counted"
+    img src="octocat.png" height="60" width="60" class="octocat"
 
-  header
-
-    h1 class="page-title"
+header class="page-title"
+  img src="woman.svg" id="woman"
+  h1 class="page-title"
+    a href="/"
       span class="page-title__part" Your
       span class="page-title__title" Words Counted
       span class="page-title__part" for nothing!
 
+hr
+
 - if @counter
-  div class="wrap"
-    article
-      h3 class="output__title" Stats
-      table class="output__table"
-        tbody
-          tr
-            th Word count
-            td = @counter.word_count
-          tr
-            th Unique word count
-            td = @counter.unique_word_count
-          tr
-            th Average characters per word
-            td = @counter.average_chars_per_word
-          tr
-            th Character count
-            td = @counter.char_count
-
-  div class="wrap"
-    article class="output"
-      h3 class="output__title" Longest Words
-      div class="overflow"
+  section class="description"
+    div class="wrap"
+      article class="output"
+        h3 class="output__title" Stats
         table class="output__table"
           tbody
-            - @counter.longest_words.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
+            tr
+              th Word count
+              td = @counter.word_count
+            tr
+              th Unique word count
+              td = @counter.unique_word_count
+            tr
+              th Average characters per word
+              td = @counter.average_chars_per_word
+            tr
+              th Character count
+              td = @counter.char_count
 
-  div class="wrap"
-    article class="output"
-      h3 class="output__title" Most Occurring Words
-      div class="overflow"
-        table class="output__table"
-          tbody
-            - @counter.most_occurring_words.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
+    div class="wrap"
+      article class="output"
+        h3 class="output__title" Longest Words
+        div class="overflow"
+          table class="output__table"
+            tbody
+              - @counter.longest_words.each do |word|
+                tr
+                  th = word[0]
+                  td = word[1]
 
-  div class="wrap"
-    article class="output"
-      h3 class="output__title" Word Frequency
-      div class="overflow"
-        table class="output__table"
-          tbody
-            - @counter.sorted_word_occurrences.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-      p Scroll over the table to see more
+    div class="wrap"
+      article class="output"
+        h3 class="output__title" Most Occurring Words
+        div class="overflow"
+          table class="output__table"
+            tbody
+              - @counter.most_occurring_words.each do |word|
+                tr
+                  th = word[0]
+                  td = word[1]
 
-  div class="wrap"
-    article class="output"
-      h3 class="output__title" Word Density
-      div class="overflow"
-        table class="output__table"
-          tbody
-            - @counter.word_density.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-      p Scroll over the table to see more
+    div class="wrap"
+      article class="output"
+        h3 class="output__title" Word Frequency
+        div class="overflow"
+          table class="output__table"
+            tbody
+              - @counter.sorted_word_occurrences.each do |word|
+                tr
+                  th = word[0]
+                  td = word[1]
 
-  div class="wrap"
-    article class="output"
-      h3 class="output__title" Word Lengths
-      div class="overflow"
-        table class="output__table"
-          tbody
-            - @counter.sorted_word_lengths.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-      p Scroll over the table to see more
+    div class="wrap"
+      article class="output"
+        h3 class="output__title" Word Density
+        div class="overflow"
+          table class="output__table"
+            tbody
+              - @counter.word_density.each do |word|
+                tr
+                  th = word[0]
+                  td = word[1]
 
-section class="form"
+    div class="wrap"
+      article class="output"
+        h3 class="output__title" Word Lengths
+        div class="overflow"
+          table class="output__table"
+            tbody
+              - @counter.sorted_word_lengths.each do |word|
+                tr
+                  th = word[0]
+                  td = word[1]
+
+  hr
+
+h2 Try it...
+section class="description"
   form action="/" method="POST"
-    textarea name="text" class="text-input" rows="8" placeholder="Type something witty in this box."
-    button type="submit" Count'em Up!
+    textarea name="text" class="text-input" rows="8" placeholder="Type something witty in this box or paste a text."
+    p
+      button type="submit" class="text-submit" Let's 'ave a Look!
 
 
-footer class="page-footer"
-  ul class="footer-links"
-    li
-      a href="https://github.com/abitdodgy" Mohamad El-Husseini
-    li
-      a href="https://github.com/abitdodgy/words_counted" WordsCounted Source
-    li
-      a href="https://github.com/abitdodgy/words_counted_site" Site Source
-    li
-      a href="https://github.com/abitdodgy/words_counted_site" About
+section class="description"
+  img src="man.svg" id="man"
+  h2 class="description__title" What's this?
+  p
+    a> href="https://github.com/abitdodgy/words_counted" WordsCounted
+    span is highly customisable Ruby gem to analyse strings for desired content. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.
+  p
+    span The
+    a<> href="http://github.com/abitdodgy/words_counted_site" source code
+    span for this site is available on Github.
+
+div class="social-buttons"
+  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&type=follow&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="20"
+  iframe src="http://ghbtns.com/github-btn.html?user=abitdodgy&repo=words_counted&type=watch&size=small" allowtransparency="true" frameborder="0" scrolling="0" width="70" height="20"
+  a href="https://twitter.com/abitdodgy" class="twitter-follow-button" data-show-count="false" data-size="medium" style="display: inline;" Follow @abitdodgy
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
