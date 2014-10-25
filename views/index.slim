@@ -4,7 +4,7 @@ div class="top-border"
   div class="bar bar-3"
   div class="bar bar-4"
 
-section class="page-header"
+section id="page-header"
 
   div class="octocat-wrapper"
     a href="https://github.com/abitdodgy/words_counted"
@@ -20,7 +20,9 @@ section class="page-header"
   h2 class="subtitle" A Ruby word counter <span>and</span> string analyser.
 
 - if @counter
-  section class="description"
+  section class="results"
+
+      h2 class="results__title" Results
 
       article class="output"
         h3 Stats
@@ -84,6 +86,8 @@ section class="page-header"
                 th = word[0]
                 td = word[1]
 
+      a href="#page-header" class="back-to-top" Back to Top
+
 section class="content"
 
   form action="/" method="POST"
@@ -94,7 +98,7 @@ section class="content"
 
   article class="description"
     img src="paperboy.svg" id="paperboy"
-    h2 class="title" Read all about it
+    h2 class="description__title" Read all about it
     p
       a> href="https://github.com/abitdodgy/words_counted" WordsCounted
       span is highly customisable Ruby gem to analyse strings for desired content. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.

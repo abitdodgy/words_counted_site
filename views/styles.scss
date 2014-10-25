@@ -139,7 +139,7 @@ a {
 // Page header banner
 //
 
-.page-header {
+#page-header {
   margin: 0 0 10px;
   padding: 0 0 88px;
   text-align: center;
@@ -205,10 +205,11 @@ a {
 
 .description {
   background-color: $border-color;
+  border-top: 3px solid $shadow-accent-color;
   margin: 100px 0;
   padding: 30px;
 
-  .title {
+  &__title {
     margin: 0 0 20px;
   }
 
@@ -219,6 +220,16 @@ a {
 
   p:last-child {
     margin-bottom: 0;
+  }
+}
+
+.results {
+  border-top: 3px solid $shadow-bottom-color;
+  margin: 0 auto 100px;
+  max-width: 600px;
+
+  &__title {
+    text-align: center;
   }
 }
 
@@ -339,6 +350,15 @@ button[type="submit"] {
     }
   }
 
+  textarea {
+    border-left: none;
+    border-right: none;
+  }
+
+  .results {
+    padding: 0 10px;
+  }
+
   .output {
 
     table {
@@ -377,19 +397,15 @@ button[type="submit"] {
   .credit {
     font-size: 1.3em;
     margin: 0 0 2em;
-
-    a {
-      color: $text-color !important;
-
-      &:visited {
-        color: inherit;
-      }
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: $shadow-bottom-color !important;
-      }
-    }
   }
+}
+
+//
+// Back to top link if there's output
+//
+
+.back-to-top {
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
 }
