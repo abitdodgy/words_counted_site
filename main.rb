@@ -11,8 +11,9 @@ post '/' do
   options = {}
 
   unless params[:regexp].empty?
-    regexp = Regexp.new(params[:regexp])
-    options.merge!({ regexp: regexp })
+    if regexp = Regexp.try_convert(params[:filter])
+      options.merge!({ regexp: regexp })
+    end
   end
 
   unless params[:filter].empty?
