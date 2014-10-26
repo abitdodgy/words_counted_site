@@ -8,7 +8,22 @@ get '/' do
 end
 
 post '/' do
-  @counter = WordsCounted.count(params[:text]) unless params[:text].empty?
+  options = {}
+
+  unless params[:regexp].empty?
+    regexp = Regexp.new(params[:regexp])
+    options.merge!({ regexp: regexp })
+  end
+
+  unless params[:filter].empty?
+    if regexp_filter = Regexp.try_convert(params[:filter])
+      options.merge!({ exclude: regexp_filter })
+    else
+      options.merge!({ exclude: params[:filter] })
+    end
+  end
+
+  @counter = WordsCounted.count(params[:text], options) unless params[:text].empty?
   slim :index
 end
 

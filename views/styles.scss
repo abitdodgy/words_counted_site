@@ -227,6 +227,11 @@ a {
     height: 200px;
   }
 
+  #instructions-woman {
+    float: right;
+    margin: 20px 0 20px 20px;
+  }
+
   p:last-child {
     margin-bottom: 0;
   }
@@ -264,6 +269,18 @@ textarea {
   outline: none;
   padding: 20px;
   resize: none;
+  width: 100%;
+}
+
+input[type="text"] {
+  background-color: $border-color;
+  border: 1px solid $form-border-color;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  font-size: $font-size-text;
+  margin: 20px 0;
+  padding: 10px;
   width: 100%;
 }
 
@@ -379,6 +396,12 @@ button[type="submit"] {
 
     #paperboy {
       float: none;
+      width: 50%;
+    }
+
+    #instructions-woman {
+      float: none;
+      margin: 0 0 20px;
       width: 50%;
     }
   }

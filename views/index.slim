@@ -72,6 +72,29 @@ section class="content" id="try"
   form action="/" method="POST"
     textarea name="text" rows="7" placeholder="Type something witty in this box or paste some text."
     button type="submit" Let's 'ave a Look!
+    input type="text" name="regexp" placeholder="Use a custom regexp. Default is [\p{Alpha}\-']+"
+    input type="text" name="filter" placeholder="Apply a filter. Regexp, lambda, array, or string."
+
+section class="content"
+
+  article class="description"
+    img src="instructions-woman.svg" height="200" id="instructions-woman"
+    h2 class="description__title" How to use this demo
+    p
+      span Customise the program output using the
+      b<>
+        a href="https://github.com/abitdodgy/words_counted#passing-in-a-custom-regexp" regexp
+      span and
+      b<>
+        a href="https://github.com/abitdodgy/words_counted#excluding-words-from-the-analyser" exclude
+      span options.
+
+    h3 Regexp
+    p This option lets you pass custom criteria to split the string. For example, use it include numbers or exclude diacritics.
+
+    h3 Exclude
+    p Use this option to exclude anything from the count. For example, if you want to exclude <i>the</i> and <i>a</i>, pass them as a space delimited string.
+    p Besides a string, <em>exclude</em> accepts an <em>array</em>, <em>lambda</em>, or a <em>regexp</em>. Note that lambdas and arrays are disabled in this demo for safety as they require using <code>eval</code>.
 
 footer class="credits"
   h3 class="credit-title" A project by
