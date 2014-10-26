@@ -3,6 +3,10 @@ require 'sass'
 require 'slim'
 require 'words_counted'
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 get '/' do
   slim :index
 end
