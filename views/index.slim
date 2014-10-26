@@ -4,11 +4,11 @@ div class="top-border"
   div class="bar bar-3"
   div class="bar bar-4"
 
-section id="page-header"
+div class="octocat-wrapper"
+  a href="https://github.com/abitdodgy/words_counted"
+    img src="octocat.png" height="60" width="60" class="octocat"
 
-  div class="octocat-wrapper"
-    a href="https://github.com/abitdodgy/words_counted"
-      img src="octocat.png" height="60" width="60" class="octocat"
+section id="page-header"
 
   figure id="woman"
     img src="woman.svg" width="122" height="164"
@@ -17,16 +17,16 @@ section id="page-header"
     a href="/" Words Counted
     span class="highlight"
 
-  h2 class="subtitle" A Ruby word counter <span>and</span> string analyser.
+  h2 class="subtitle" A Ruby word counter and string analyser.
 
 - if @counter
   section class="results"
 
       h2 class="results__title" Results
 
-      article class="output"
-        h3 Stats
-        table
+      article class="results__data"
+        h3 class="results__subtitle" Stats
+        table class="results__table"
           tbody
             tr
               th Word count
@@ -41,52 +41,15 @@ section id="page-header"
               th Character count
               td = @counter.char_count
 
-      article class="output"
-        h3 Longest Words
-        table
-          tbody
-            - @counter.longest_words.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
+      == slim :results, locals: { title: "Longest Words", array: @counter.longest_words }
+      == slim :results, locals: { title: "Most Occurring Words", array: @counter.most_occurring_words }
+      == slim :results, locals: { title: "Word Frequency", array: @counter.sorted_word_occurrences }
+      == slim :results, locals: { title: "Word Density", array: @counter.word_density }
+      == slim :results, locals: { title: "Word Lengths", array: @counter.sorted_word_lengths }
 
-      article class="output"
-        h3 Most Occurring Words
-        table
-          tbody
-            - @counter.most_occurring_words.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-
-      article class="output"
-        h3 Word Frequency
-        table
-          tbody
-            - @counter.sorted_word_occurrences.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-
-      article class="output"
-        h3 Word Density
-        table
-          tbody
-            - @counter.word_density.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-
-      article class="output"
-        h3 Word Lengths
-        table
-          tbody
-            - @counter.sorted_word_lengths.each do |word|
-              tr
-                th = word[0]
-                td = word[1]
-
-      div class="back-to-top"
+      div class="results__ui"
+        a href="#" data-collapse="all" Collapse All
+        a href="#" data-expand="all" Expand All
         a href="#page-header" Back to Top
 
 section class="content"
@@ -102,9 +65,9 @@ section class="content"
       a<> href="http://github.com/abitdodgy/words_counted_site" source code
       span for this site is available on Github.
 
-section class="content"
+section class="content" id="try"
 
-  h2 class="content__title" Try It
+  h2 class="content__title" Try it
 
   form action="/" method="POST"
     textarea name="text" rows="7" placeholder="Type something witty in this box or paste some text."
@@ -115,10 +78,10 @@ footer class="credits"
   h2 class="credit"
     a href="https://github.com/abitdodgy" Mohamad El-Husseini
 
+  h3 class="credit-title" Gem Source and API Docs
+  h2 class="credit"
+    a href="https://github.com/abitdodgy/words_counted" Visit Github
+
   h3 class="credit-title" Page Source
   h2 class="credit"
     a href="https://github.com/abitdodgy/words_counted_site" Visit Github
-
-  h3 class="credit-title" Gem Source and Docs
-  h2 class="credit"
-    a href="https://github.com/abitdodgy/words_counted" Visit Github

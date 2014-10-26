@@ -1,0 +1,15 @@
+- id = id_from(title)
+- result_size = array.size
+article class="results__data"
+  h3 = title
+  table id="#{id}" class="results__table"
+    tbody
+      - array.each.with_index(1) do |word, i|
+        tr class="#{class_for_index i}"
+          th = word[0]
+          td = word[1]
+  - if collapsed?(array)
+    p
+      span class="results__count" data-expanded-text="Showing #{result_size} of #{result_size}" data-collapsed-text="Showing 3 of #{result_size}"  Showing 3 of #{result_size}
+      a href="#" data-show="#{id}" Show More
+      a href="#" data-hide="#{id}" Show Less
