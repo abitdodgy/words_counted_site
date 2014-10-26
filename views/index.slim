@@ -47,10 +47,12 @@ section id="page-header"
       == slim :results, locals: { title: "Word Density", array: @counter.word_density }
       == slim :results, locals: { title: "Word Lengths", array: @counter.sorted_word_lengths }
 
-      div class="results__ui"
-        a href="#" data-collapse="all" Collapse All
-        a href="#" data-expand="all" Expand All
-        a href="#page-header" Back to Top
+      - if @counter.word_count > 3
+
+        div class="results__ui"
+          a href="#" data-collapse="all" Collapse All
+          a href="#" data-expand="all" Expand All
+          a href="#page-header" Back to Top
 
 section class="content"
 
