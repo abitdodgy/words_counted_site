@@ -13,12 +13,13 @@ $(document).ready(function() {
   $('[data-show]').on('click', function(e) {
         e.preventDefault();
 
-        var targetId = $(this).data('show');
+        var element = $(this);
+        var targetId = element.data('show');
         var target = $('#' + targetId);
 
-        $(this).hide().siblings('[data-hide]').show();
+        element.hide().siblings('[data-hide]').show();
 
-        var count = $(this).siblings('.results__count');
+        var count = element.siblings('.results__count');
         count.text(count.data('expanded-text'));
 
         target.find(selector).show();
@@ -69,5 +70,20 @@ $(document).ready(function() {
 
         var target = $(this).data('toggle');
         $('.' + target).slideToggle();
+    });
+
+    $('button[type="submit"').on('click', function(e) {
+        var textarea = $('textarea');
+
+        if (textarea.val().length < 1) {
+            e.preventDefault();
+
+            var error = $('.error-text');
+            var errorTemplate = '<p class="error-text">Type something...</p>';
+
+            error.length ? error.replaceWith(errorTemplate) : textarea.after(errorTemplate);
+
+            return false;
+        }
     });
 });
