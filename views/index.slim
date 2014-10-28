@@ -72,8 +72,8 @@ section class="content"
   h2 class="content__title" Try it
 
   form action="/" method="POST"
-    textarea name="text" rows="7" placeholder="Type something witty in this box or paste some text."
-    button type="submit" Let's 'ave a Look!
+    textarea name="text" rows="7" class="form-text" placeholder="Type something witty in this box or paste some text."
+    button type="submit" class="form-submit" Let's 'ave a Look!
     h2 class="content__title" Optional
     input type="text" name="regexp" placeholder="Use a custom regexp. Default is [\p{Alpha}\-']+"
     input type="text" name="filter" placeholder="Apply a filter. Regexp, lambda, array, or string."
@@ -84,33 +84,7 @@ section class="content"
         span> class="hidden" Hide
         span Examples
 
-  article class="description examples"
-    h3 Lambda
-    p Exclude words less than five characters long.
-    pre
-      code
-        span WordsCounted.count(
-        br
-        span class="double-space" post, exclude: ->(word) { word.length > 5 }
-        br
-        span )
-      br
-    h3 Array
-    p Exclude common words.
-    pre
-      code
-        span WordsCounted.count(post, exclude: %w[a the to I in of])
-    h3 Custom regexp
-    p Include numbers in analysis, and exclude some common words.
-    pre
-      code
-        span WordsCounted.count(
-        br
-        span class="double-space" post, regexp: /[\p{Alnum}\-']+/, exclude: "a the to in"
-        br
-        span )
-    p Using lambdas and arrays is not supported in this demo as they require using <code>eval</code>.
-    p Take a look at the documentation for more options.
+  == slim :examples
 
 section class="content"
 

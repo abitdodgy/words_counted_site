@@ -72,8 +72,8 @@ $(document).ready(function() {
         $('.' + target).slideToggle();
     });
 
-    $('button[type="submit"').on('click', function(e) {
-        var textarea = $('textarea');
+    $('.form-submit').on('click', function(e) {
+        var textarea = $('.form-text');
 
         if (textarea.val().length < 1) {
             e.preventDefault();
