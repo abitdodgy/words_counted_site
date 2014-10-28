@@ -1,8 +1,8 @@
-div class="top-border"
-  div class="bar bar-1"
-  div class="bar bar-2"
-  div class="bar bar-3"
-  div class="bar bar-4"
+div class="color-bars"
+  div class="color-bar color-bar-red"
+  div class="color-bar color-bar-green"
+  div class="color-bar color-bar-yellow"
+  div class="color-bar color-bar-blue"
 
 div class="octocat-wrapper"
   a href="https://github.com/abitdodgy/words_counted"
@@ -17,7 +17,7 @@ section id="page-header"
     a href="/" Words Counted
     span class="highlight"
 
-  h2 class="subtitle" A Ruby text analyser.
+  h2 A Ruby text analyser.
 
 - if @counter
   section class="results"
@@ -58,7 +58,7 @@ section class="content"
 
   article class="description"
     img src="paperboy.svg" id="paperboy" height="191" width="200"
-    h2 class="description__title" Read all about it
+    h2 Read all about it
     p
       a> href="https://github.com/abitdodgy/words_counted" WordsCounted
       span is highly customisable Ruby text analyser. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.
@@ -67,7 +67,7 @@ section class="content"
       a<> href="http://github.com/abitdodgy/words_counted_site" source code
       span for this site is available on Github.
 
-section class="content" id="try"
+section class="content"
 
   h2 class="content__title" Try it
 
@@ -77,6 +77,40 @@ section class="content" id="try"
     h2 class="content__title" Optional
     input type="text" name="regexp" placeholder="Use a custom regexp. Default is [\p{Alpha}\-']+"
     input type="text" name="filter" placeholder="Apply a filter. Regexp, lambda, array, or string."
+
+    div class="text-center"
+      a href="#" data-toggle="examples"
+        span> class="shown" Show
+        span> class="hidden" Hide
+        span Examples
+
+  article class="description examples"
+    h3 Lambda
+    p Exclude words less than five characters long.
+    pre
+      code
+        span WordsCounted.count(
+        br
+        span class="double-space" post, exclude: ->(word) { word.length > 5 }
+        br
+        span )
+      br
+    h3 Array
+    p Exclude common words.
+    pre
+      code
+        span WordsCounted.count(post, exclude: %w[a the to I in of])
+    h3 Custom regexp
+    p Include numbers in analysis, and exclude some common words.
+    pre
+      code
+        span WordsCounted.count(
+        br
+        span class="double-space" post, regexp: /[\p{Alnum}\-']+/, exclude: "a the to in"
+        br
+        span )
+    p Using lambdas is not supported in this demo as they require using <code>eval</code>.
+    p Take a look at the documentation for more options.
 
 section class="content"
 
@@ -98,7 +132,7 @@ section class="content"
 
     h3 Exclude
     p Use this option to exclude anything from the count. For example, if you want to exclude <i>the</i> and <i>a</i>, pass them as a space delimited string.
-    p Besides a string, <em>exclude</em> accepts an <em>array</em>, <em>lambda</em>, or a <em>regexp</em>. Note that lambdas and arrays are disabled in this demo for safety as they require using <code>eval</code>.
+    p Besides a string, <code>exclude</code> accepts an <code>array</code>, <code>lambda</code>, or a <code>regexp</code>. Note that lambdas and arrays are disabled in this demo for safety as they require using <code>eval</code>.
 
 footer class="credits"
   h3 class="credit-title" A project by

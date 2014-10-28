@@ -2,84 +2,88 @@
 // Variables
 //
 
-$bg-color: #eee;
-$border-color: #ddd;
+$brand-blue:    blue;
+$brand-green:   green;
+$brand-red:     red;
+$brand-yellow:  yellow;
+$brand-black:   black;
+
+$background-color:      #eee;
+$background-color-dark: #ddd;
 
 $link-color: #05aa73;
 $link-hover-color: darken($link-color, 10%);
 
-$text-color: #000;
+$text-color: $brand-black;
 $text-muted: #888;
 
-$table-border-color: #000;
-
-$heading-color: yellow;
-$shadow-bottom-color: red;
-$shadow-top-color: green;
-$shadow-accent-color: blue;
-
-$form-border-color: $shadow-top-color;
+$form-border-color:  $brand-green;
+$table-border-color: $brand-black;
 
 $font-family: Courier;
 
 $font-size-title: 4em;
-$font-size-h2: 1.5em;
-$font-size-h3: 1.2em;
-$font-size-text: 1em;
+$font-size-h2:    1.5em;
+$font-size-h3:    1.2em;
+$font-size-text:  1em;
 
 //
 // Reset
 //
 
 * {
-  font-family: $font-family;
   margin: 0;
   padding: 0;
 }
 
 //
-// Default elements
+// Document
 //
 
 html,
 body {
-  background: $bg-color;
-  background: $bg-color url('noise.png') 0 0 repeat;
+  background: $background-color url('noise.png') 0 0 repeat;
   color: $text-color;
+  font-family: $font-family;
   font-size: $font-size-text;
 }
 
-hr {
-  border: 5px solid $border-color;
-  height: 0;
-  margin: 100px 0;
-}
+//
+// Headings
+//
 
-h2,
-h3 {
-  font-size: $font-size-h2;
+%headings {
   font-weight: bold;
   margin: 20px 0;
 }
 
+h2 {
+  @extend %headings;
+
+  font-size: $font-size-h2;
+}
+
 h3 {
+  @extend %headings;
+
   font-size: $font-size-h3;
 }
 
 p {
   font-size: $font-size-text;
-  line-height: 24px;
+  line-height: 1.8em;
   margin: 20px 0;
 }
 
 textarea {
-  line-height: 24px;
+  line-height: 1.8em;
 }
 
 a {
+  &:active,
+  &:focus,
   &:link,
-  &:visited,
-  &:active {
+  &:visited {
     color: $link-color;
   }
 
@@ -88,37 +92,63 @@ a {
   }
 }
 
+code {
+  background-color: $background-color;
+  font-size: $font-size-h3;
+  padding: 0 5px;
+}
+
+pre {
+  background-color: #d0d0d0;
+  margin: 20px -30px;
+  overflow-x: scroll;
+  padding: 20px 30px;
+
+  code {
+    background-color: transparent;
+    line-height: 1.4em;
+    padding: 0;
+
+    .double-space {
+      margin-left: 14px;
+    }
+  }
+}
+
 //
 // Page decoration
 //
 
-.top-border {
-  border-bottom: 1px solid transparent;
-}
-
-.bar {
+.color-bar {
   float: left;
   height: 5px;
 
-  &.bar-1 {
-    background-color: $shadow-bottom-color;
-    width: 25%;
+  @each $color in $brand-red, $brand-green, $brand-blue, $brand-yellow {
+    &.color-bar-#{$color} {
+      background-color: $color;
+      width: 25%;
+    }
   }
+}
 
-  &.bar-2 {
-    background-color: $shadow-top-color;
-    width: 25%;
-  }
+//
+// Utils
+//
 
-  &.bar-3 {
-    background-color: $heading-color;
-    width: 25%;
-  }
+.text-center {
+  text-align: center;
+}
 
-  &.bar-4 {
-    background-color: $shadow-accent-color;
-    width: 25%;
-  }
+.hidden {
+  display: none;
+}
+
+//
+// Examples
+//
+
+.examples {
+  display: none;
 }
 
 //
@@ -156,29 +186,29 @@ a {
 //
 
 .page-title {
-  color: $heading-color;
+  color: $brand-yellow;
   display: inline-block;
   font-size: $font-size-title;
   font-weight: bold;
   letter-spacing: 2px;
   position: relative;
   text-shadow:
-     1px  2px 0 $shadow-bottom-color,
-    -1px -2px 0 $shadow-top-color,
-    -1px  1px 0 $shadow-accent-color,
-     1px -1px 0 $shadow-accent-color;
+     1px  2px 0 $brand-red,
+    -1px -2px 0 $brand-green,
+    -1px  1px 0 $brand-blue,
+     1px -1px 0 $brand-blue;
   text-transform: uppercase;
   word-spacing: -15px;
 
   a {
     color: inherit;
-    font-size: inherit;
     position: relative;
     text-decoration: none;
     z-index: 2;
 
-    &:hover,
     &:active,
+    &:focus,
+    &:hover,
     &:visited {
       color: inherit;
       text-decoration: none;
@@ -189,15 +219,11 @@ a {
     background-color: #accdf6;
     bottom: 0;
     left: 0;
-    opacity: .5;
+    opacity: .4;
     position: absolute;
     right: 0;
     top: 0;
   }
-}
-
-.subtitle {
-  margin-bottom: 0;
 }
 
 //
@@ -214,13 +240,9 @@ a {
 }
 
 .description {
-  background-color: $border-color;
-  border-top: 3px solid $shadow-accent-color;
-  padding: 30px;
-
-  &__title {
-    margin: 0 0 20px;
-  }
+  background-color: $background-color-dark;
+  border-top: 3px solid $brand-blue;
+  padding: 10px 30px;
 
   #paperboy {
     float: right;
@@ -231,14 +253,10 @@ a {
     float: right;
     margin: 20px 0 20px 20px;
   }
-
-  p:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .results {
-  border-top: 3px solid $shadow-bottom-color;
+  border-top: 3px solid $brand-blue;
   margin: 0 auto 100px;
   max-width: 600px;
 
@@ -251,41 +269,47 @@ a {
 // Form
 //
 
+%input {
+  background-color: $background-color-dark;
+  border: 1px solid $form-border-color;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  font-family: $font-family;
+  font-size: $font-size-text;
+  outline: none;
+  width: 100%;
+
+  &:focus {
+    border-color: $brand-red;
+  }
+}
+
 form {
-  border-top: 3px solid $form-border-color;
   margin: 0 auto;
   max-width: 600px;
   padding: 0 0 20px;
 }
 
 textarea {
-  background-color: $border-color;
-  border: 1px solid $form-border-color;
-  border-top: none;
-  border-radius: 0;
-  box-sizing: border-box;
-  font-size: $font-size-text;
+  @extend %input;
+
+  border-top-width: 3px;
   margin: 0 0 20px;
-  outline: none;
   padding: 20px;
   resize: none;
-  width: 100%;
 }
 
 input[type="text"] {
-  background-color: $border-color;
-  border: 1px solid $form-border-color;
-  border-radius: 0;
-  box-sizing: border-box;
-  display: block;
-  font-size: $font-size-text;
+  @extend %input;
+
   margin: 20px 0;
   padding: 10px;
-  width: 100%;
 }
 
 button[type="submit"] {
   display: block;
+  font-family: $font-family;
   font-size: $font-size-text;
   margin: 0 auto;
   padding: 6px 12px;
@@ -304,17 +328,13 @@ button[type="submit"] {
 
   &__table {
     border-collapse: collapse;
-    border-spacing: none;
+    border-spacing: 0;
     border-top: 1px solid $table-border-color;
     margin: 20px 0;
     padding: 0;
     width: 100%;
 
     tr {
-
-      &.hidden {
-        display: none;
-      }
 
       th,
       td {
@@ -441,7 +461,7 @@ button[type="submit"] {
 //
 
 .credits {
-  background-color: $border-color;
+  background-color: $background-color-dark;
   border-top: 5px solid #ccc;
   line-height: 2em;
   margin: 0;

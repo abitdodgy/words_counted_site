@@ -1,5 +1,5 @@
 $.fn.scrollView = function() {
-    return this.each(function () {
+    return this.each(function() {
         $('html, body').animate({
             scrollTop: $(this).offset().top
         }, 400);
@@ -60,5 +60,14 @@ $(document).ready(function() {
         $('[data-hide]').trigger('click', true);
 
         $('.results').scrollView();
+    });
+
+    $('[data-toggle]').on('click', function(e) {
+        e.preventDefault();
+
+        $(this).children('.shown').toggle().siblings('.hidden').toggle();
+
+        var target = $(this).data('toggle');
+        $('.' + target).slideToggle();
     });
 });
