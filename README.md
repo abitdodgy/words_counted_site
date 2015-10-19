@@ -13,7 +13,3 @@ Yes. It's hosted on Heroku and available on [http://rubywordcount.com][2].
 
   [1]: https://github.com/abitdodgy/words_counted
   [2]: http://rubywordcount.com
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/abitdodgy/words_counted_site/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
