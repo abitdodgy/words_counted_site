@@ -20,7 +20,7 @@ $text-muted: #888;
 $form-border-color:  $brand-green;
 $table-border-color: $brand-black;
 
-$font-family: Courier;
+$font-family: Courier, sans-serif;
 
 $font-size-title: 4em;
 $font-size-h2:    1.5em;
@@ -239,7 +239,7 @@ pre {
   margin: 100px auto;
   max-width: 600px;
 
-  &__title {
+  &-title {
     text-align: center;
   }
 }
@@ -265,7 +265,7 @@ pre {
   margin: 0 auto 100px;
   max-width: 600px;
 
-  &__title {
+  &-title {
     text-align: center;
   }
 }
@@ -331,7 +331,7 @@ button[type="submit"] {
     text-align: right;
   }
 
-  &__table {
+  &-table {
     border-collapse: collapse;
     border-spacing: 0;
     border-top: 1px solid $table-border-color;
@@ -367,11 +367,11 @@ button[type="submit"] {
     display: none;
   }
 
-  &__count {
+  &-count {
     float: left;
   }
 
-  &__ui {
+  &-ui {
     background-color: #fff;
     bottom: 0;
     left: 0;
@@ -443,7 +443,7 @@ button[type="submit"] {
   .results {
     padding: 0 10px;
 
-    &__table {
+    &-table {
       font-size: .8em;
 
       tr th {
@@ -455,7 +455,7 @@ button[type="submit"] {
       }
     }
 
-    &__ui {
+    &-ui {
       text-align: center;
     }
   }

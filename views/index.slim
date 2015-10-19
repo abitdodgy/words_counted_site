@@ -1,45 +1,41 @@
-div class="color-bars"
-  div class="color-bar color-bar-red"
-  div class="color-bar color-bar-green"
-  div class="color-bar color-bar-yellow"
-  div class="color-bar color-bar-blue"
+.color-bars
+  .color-bar.color-bar-red
+  .color-bar.color-bar-green
+  .color-bar.color-bar-yellow
+  .color-bar.color-bar-blue
 
-div class="octocat-wrapper"
+.octocat-wrapper
   a href="https://github.com/abitdodgy/words_counted"
-    img src="octocat.png" height="60" width="60" class="octocat"
+    img.octocat src="octocat.png" height="60" width="60" alt="Github Octocat"
 
-section id="page-header"
+section#page-header
+  figure#woman
+    img src="woman.svg" width="122" height="164" alt="Woman pointing at something"
 
-  figure id="woman"
-    img src="woman.svg" width="122" height="164"
-
-  h1 class="page-title"
+  h1.page-title
     a href="/" Words Counted
-    span class="highlight"
-
-  h2 A Ruby text analyser.
+    span.highlight
+  h2 A Ruby natural language processor.
 
 - if @counter
-  section class="results"
-
-      h2 class="results__title" Results
-
-      article class="results__data"
-        h3 class="results__subtitle" Stats
-        table class="results__table"
-          tbody
-            tr
-              th Word count
-              td = @counter.word_count
-            tr
-              th Unique word count
-              td = @counter.unique_word_count
-            tr
-              th Average chars per word
-              td = @counter.average_chars_per_word
-            tr
-              th Character count
-              td = @counter.char_count
+  section.results
+    h2.results-title Results
+    article.results-data
+      h3.results-subtitle Stats
+      table.results-table
+        tbody
+          tr
+            th Word count
+            td = @counter.word_count
+          tr
+            th Unique word count
+            td = @counter.unique_word_count
+          tr
+            th Average chars per word
+            td = @counter.average_chars_per_word
+          tr
+            th Character count
+            td = @counter.char_count
 
       == slim :results, locals: { title: "Longest Words", array: @counter.longest_words }
       == slim :results, locals: { title: "Most Occurring Words", array: @counter.most_occurring_words }
@@ -48,48 +44,41 @@ section id="page-header"
       == slim :results, locals: { title: "Word Lengths", array: @counter.sorted_word_lengths }
 
       - if @counter.word_count > 3
-
-        div class="results__ui"
+        .results-ui
           a href="#" data-collapse="all" Collapse All
           a href="#" data-expand="all" Expand All
           a href="#page-header" Back to Top
 
-section class="content"
-
-  article class="description"
-    img src="paperboy.svg" id="paperboy" height="191" width="200"
+section.content
+  article.description
+    img src="paperboy.svg" id="paperboy" height="191" width="200" alt="paperboy"
     h2 Read all about it
     p
       a> href="https://github.com/abitdodgy/words_counted" WordsCounted
-      span is highly customisable Ruby text analyser. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.
+      span is customisable Ruby natural language processor. This site is a demo for the gem's functionality. Take a look at the repo for full documentation.
     p
       span The
       a<> href="http://github.com/abitdodgy/words_counted_site" source code
       span for this site is available on Github.
 
-section class="content"
-
-  h2 class="content__title" Try it
-
+section.content
+  h2.content-title Try it
   form action="/" method="POST"
     textarea name="text" rows="7" class="form-text" placeholder="Type something witty in this box or paste some text."
-    button type="submit" class="form-submit" Let's 'ave a Look!
-    h2 class="content__title" Optional
+    button.form-submit type="submit" Let's 'ave a Look!
+    h2.content-title Optional
     input type="text" name="regexp" placeholder="Use a custom regexp. Default is [\p{Alpha}\-']+"
     input type="text" name="filter" placeholder="Apply a filter. Regexp, lambda, array, or string."
-
-    div class="text-center"
+    .text-center
       a href="#" data-toggle="examples"
-        span> class="shown" Show
-        span> class="hidden" Hide
+        span.shown> Show
+        span.hidden> Hide
         span Examples
-
   == slim :examples
 
-section class="content"
-
-  article class="description"
-    h2 class="description__title" How to use this demo
+section.content
+  article.description
+    h2.description-title How to use this demo
     p
       span Customise the program output using the
       b<>
@@ -99,24 +88,24 @@ section class="content"
         a href="https://github.com/abitdodgy/words_counted#excluding-words-from-the-analyser" exclude
       span options.
 
-    img src="instructions-woman.svg" height="200" id="instructions-woman"
+    img#instructions-woman src="instructions-woman.svg" height="200" alt="woman with instructions"
 
     h3 Regexp
     p This option lets you pass custom criteria to split the string. For example, use it include numbers or exclude diacritics.
 
     h3 Exclude
-    p Use this option to exclude anything from the count. For example, if you want to exclude <i>the</i> and <i>a</i>, pass them as a space delimited string.
-    p Besides a string, <code>exclude</code> accepts an <code>array</code>, <code>lambda</code>, or a <code>regexp</code>. Note that lambdas and arrays are disabled in this demo for safety as they require using <code>eval</code>.
+    p Use this option to exclude anything from the stats. For example, if you want to exclude <i>the</i> and <i>a</i>, pass them as a space delimited string.
+    p Besides a string, <code>exclude</code> accepts an <code>array</code>, <code>lambda</code>, or a <code>regexp</code>. Note that lambdas and arrays are disabled in this demo.
 
-footer class="credits"
-  h3 class="credit-title" A project by
-  h2 class="credit"
+footer.credits
+  h3.credit-title A project by
+  h2.credit
     a href="https://github.com/abitdodgy" Mohamad El-Husseini
 
-  h3 class="credit-title" Gem Source and API Docs
-  h2 class="credit"
+  h3.credit-title Gem Source and API Docs
+  h2.credit
     a href="https://github.com/abitdodgy/words_counted" Visit Github
 
-  h3 class="credit-title" Page Source
-  h2 class="credit"
+  h3.credit-title Page Source
+  h2.credit
     a href="https://github.com/abitdodgy/words_counted_site" Visit Github

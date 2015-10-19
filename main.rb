@@ -42,7 +42,9 @@ helpers do
   end
 
   def class_for_index(i)
-    i > 3 ? 'hidden' : nil
+    if i > 3
+      'hidden'
+    end
   end
 
   def collapsed?(array)
